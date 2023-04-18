@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "257568651436",
+    "firebase_url": "https://kosmos-d81af-default-rtdb.firebaseio.com",
+    "project_id": "kosmos-d81af",
+    "storage_bucket": "kosmos-d81af.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257568651436:android:2df7f8d4b0f02de3b20709",
+        "android_client_info": {
+          "package_name": "com.example.afinal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "257568651436-pf0kt4sbvbrivg58c4l55k3qbs9qs2tl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYOO8LrtV6jWFeQipgcI2Vsz6x2ya4YoQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "257568651436-pf0kt4sbvbrivg58c4l55k3qbs9qs2tl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257568651436:android:b1432cab79c9a189b20709",
+        "android_client_info": {
+          "package_name": "com.example.tele2education"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "257568651436-pf0kt4sbvbrivg58c4l55k3qbs9qs2tl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYOO8LrtV6jWFeQipgcI2Vsz6x2ya4YoQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "257568651436-pf0kt4sbvbrivg58c4l55k3qbs9qs2tl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
