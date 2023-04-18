@@ -10,6 +10,7 @@ import com.example.tele2education.R
 import com.example.tele2education.databinding.FragmentHomeBinding
 import com.example.tele2education.databinding.FragmentProfileBinding
 import com.example.tele2education.ui.home.HomeViewModel
+import com.google.firebase.auth.FirebaseAuth
 
 class ProfileFragment : Fragment() {
 
@@ -24,6 +25,9 @@ class ProfileFragment : Fragment() {
         binding = FragmentProfileBinding.inflate(layoutInflater)
         viewModel = ViewModelProvider(this)[ProfileViewModel::class.java]
 
+        binding.btnSignOut.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+        }
 
         return binding.root
     }
