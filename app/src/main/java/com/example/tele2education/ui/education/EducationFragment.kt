@@ -1,4 +1,4 @@
-package com.example.tele2education.ui.home
+package com.example.tele2education.ui.education
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,21 +8,19 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.tele2education.databinding.FragmentEducationBinding
-import com.example.tele2education.databinding.FragmentHomeBinding
-import com.example.tele2education.ui.education.EducationViewModel
 
-class HomeFragment : Fragment() {
+class EducationFragment : Fragment() {
 
-    private lateinit var binding: FragmentHomeBinding
-    private lateinit var viewModel: HomeViewModel
+    private lateinit var binding: FragmentEducationBinding
+    private lateinit var viewModel: EducationViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentHomeBinding.inflate(layoutInflater)
-        viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
+        binding = FragmentEducationBinding.inflate(layoutInflater)
+        viewModel = ViewModelProvider(this)[EducationViewModel::class.java]
 
 
         return binding.root

@@ -12,14 +12,20 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.tele2education.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_education"
+        android:name="com.example.tele2education.ui.education.EducationFragment"
+        android:label="@string/title_education"
+        tools:layout="@layout/fragment_education" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.tele2education.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_competitions"
+        android:name="com.example.tele2education.ui.competitions.CompetitionsFragment"
+        android:label="@string/title_competitions"
+        tools:layout="@layout/fragment_competitions" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.tele2education.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>
