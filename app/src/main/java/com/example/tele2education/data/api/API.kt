@@ -1,8 +1,7 @@
 package com.example.tele2education.data.api
 
 import android.util.Log
-import com.example.tele2education.data.models.*
-import com.example.tele2education.ui.game_preparing.GamePrepareEventListener
+import com.example.tele2education.data.models.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.ChildEventListener
@@ -10,6 +9,13 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.coroutines.tasks.await
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.tasks.await
+import java.util.Calendar
 
 class API() {
 
@@ -51,6 +57,19 @@ class API() {
 
     fun getCurrentUser(): FirebaseUser? {
         return FirebaseAuth.getInstance().currentUser
+    }
+
+    suspend fun getEducationItems(form: Int): String {
+        var result = ""
+
+        val data = Firebase.database.reference.child("education")
+            .child("form$form").get().await()
+
+        data.children.forEach {
+            result += it.child("name").value
+        }
+
+        return result
     }
 
     suspend fun getQuizs(): ArrayList<Quiz> {
