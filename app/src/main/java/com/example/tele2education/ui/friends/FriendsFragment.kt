@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.tele2education.databinding.FragmentHomeBinding
 import com.example.tele2education.ui.in_game.InGameActivity
 
-class HomeFragment : Fragment() {
+class FriendsFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var viewModel: FriendsViewModel

@@ -1,4 +1,4 @@
-package com.example.tele2education.ui.home
+package com.example.tele2education.ui.game_info
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,10 +10,10 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.tele2education.databinding.FragmentHomeBinding
 import com.example.tele2education.ui.in_game.InGameActivity
 
-class HomeFragment : Fragment() {
+class GameInfoFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
-    private lateinit var viewModel: FriendsViewModel
+    private lateinit var viewModel: GameInfoViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,11 +21,8 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(layoutInflater)
-        viewModel = ViewModelProvider(this)[FriendsViewModel::class.java]
+        viewModel = ViewModelProvider(this)[GameInfoViewModel::class.java]
 
-        binding.toGame.setOnClickListener {
-            startActivity(Intent(requireActivity(), InGameActivity::class.java))
-        }
 
         return binding.root
     }

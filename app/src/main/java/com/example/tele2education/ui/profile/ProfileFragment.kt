@@ -6,10 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.tele2education.R
-import com.example.tele2education.databinding.FragmentHomeBinding
 import com.example.tele2education.databinding.FragmentProfileBinding
-import com.example.tele2education.ui.home.HomeViewModel
 import com.google.firebase.auth.FirebaseAuth
 
 class ProfileFragment : Fragment() {
