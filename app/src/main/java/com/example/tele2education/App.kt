@@ -7,6 +7,7 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 import androidx.annotation.RequiresApi
+import com.example.tele2education.data.PreferencesManager
 import com.example.tele2education.data.api.API
 
 class App: Application() {
@@ -15,7 +16,7 @@ class App: Application() {
         super.onCreate()
         instance = this
         api = API()
-        //preferencesManager = PreferencesManager(applicationContext)
+        preferencesManager = PreferencesManager(applicationContext)
     }
 
     companion object{
@@ -25,9 +26,9 @@ class App: Application() {
         lateinit var api: API
             private set
 
-        /*@SuppressLint("StaticFieldLeak")
+        @SuppressLint("StaticFieldLeak")
         lateinit var preferencesManager: PreferencesManager
-            private set*/
+            private set
 
         var syncUser: Boolean = false
             private set

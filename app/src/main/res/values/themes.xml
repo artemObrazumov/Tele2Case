@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Tele2Education" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="Theme.Tele2Education" parent="Theme.Material3.Dark.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -12,10 +12,12 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:fontFamily">@font/tele2displayserif_regular</item>
+        <item name="android:textColor">#6f6f71</item>
+        <item name="statusBarBackground">#1c1b20</item>
     </style>
 
     <style name="container">
-        <item name="android:background">@drawable/container</item>
         <item name="android:padding">12dp</item>
     </style>
     <style name="containerCorners">
@@ -45,7 +47,7 @@
         <item name="android:paddingBottom">12dp</item>
         <item name="android:gravity">center</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/black</item>
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
     </style>
@@ -58,5 +60,15 @@
 
     <style name="CustomBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="roundedImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+
+    <style name="circleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
     </style>
 </resources>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.game_preparing.GamePreparingActivity">
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:padding="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/baseline_keyboard_arrow_left_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Подготовка к игре:"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/back"
+        app:layout_constraintStart_toEndOf="@+id/back"
+        app:layout_constraintTop_toTopOf="@+id/back" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/participantsList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/back"
+        tools:listitem="@layout/user_item"
+        android:layout_marginHorizontal="16dp"
+        tools:itemCount="4"/>
+
+    <TextView
+        android:id="@+id/readyCounter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Участников готово: 0/4"
+        android:layout_marginHorizontal="16dp"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/participantsList" />
+
+    <TextView
+        android:id="@+id/readyButton"
+        style="@style/CustomButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Не готов"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/readyCounter" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.8" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

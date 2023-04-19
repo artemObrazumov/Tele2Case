@@ -28,4 +28,10 @@
         android:name="com.example.tele2education.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/navigation_game_info"
+        android:name="com.example.tele2education.ui.game_info.GameInfoFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_game_info" />
 </navigation>
