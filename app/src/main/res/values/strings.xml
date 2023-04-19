@@ -4,4 +4,7 @@
     <string name="title_education">Обучение</string>
     <string name="title_competitions">Соревнования</string>
     <string name="title_profile">Профиль</string>
+    <string name="friends">Друзья</string>
+    <string name="join_game">Присоединиться к игре:</string>
+    <string name="join">Присоединиться</string>
 </resources>
