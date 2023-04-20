@@ -8,11 +8,12 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gray_outline">#E3E3E3</color>
+    <color name="gray_background">#2f333c</color>
     <color name="interactable">#00B5EF</color>
 
     <color name="gray">#F1F1F1</color>
     <color name="darkGray">#C1C1C1</color>
-    <color name="green">#329748</color>
-    <color name="red">#EF5555</color>
     <color name="input_field">#E1EBFC</color>
+    <color name="yellow">#FFD54D</color>
+    <color name="red">#b22947</color>
 </resources>

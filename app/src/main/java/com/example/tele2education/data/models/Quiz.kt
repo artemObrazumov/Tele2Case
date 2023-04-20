@@ -1,10 +1,9 @@
 package com.example.tele2education.data.models
 
-data class QuizScript(
+data class Quiz(
     var id: String = "",
-    var quizItems: ArrayList<QuizItem> = arrayListOf(),
     var title: String = "",
     var description: String = "",
-    var form: Int = 5,
+    var form: String = "5",
     var subject: String = ""
 )

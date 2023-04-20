@@ -21,7 +21,8 @@
         android:id="@+id/navigation_competitions"
         android:name="com.example.tele2education.ui.competitions.CompetitionsFragment"
         android:label="@string/title_competitions"
-        tools:layout="@layout/fragment_competitions" />
+        tools:layout="@layout/fragment_competitions" >
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_profile"

@@ -67,7 +67,7 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:gravity="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:text="@string/friends"/>
 
         </LinearLayout>
@@ -94,7 +94,7 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:gravity="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:text="@string/friends"/>
 
         </LinearLayout>

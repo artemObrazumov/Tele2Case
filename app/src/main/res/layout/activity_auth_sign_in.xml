@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="48dp"
         style="@style/container">
 
         <TextView
@@ -20,6 +20,7 @@
             android:text="Авторизация"
             android:textSize="24sp"
             android:textStyle="bold"
+            android:textColor="@color/white"
             android:inputType="textEmailAddress"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

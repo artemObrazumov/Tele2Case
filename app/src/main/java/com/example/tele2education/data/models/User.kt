@@ -1,8 +1,10 @@
 package com.example.tele2education.data.models
 
 data class User(
-    val id: String = "",
-    val userName: String = "",
-    val points: Int = 0,
-    val form: Int = 5,
+    var id: String = "",
+    var nickname: String = "",
+    var birthDate: Long = 0L,
+    var avatar: String = "",
+    var balance: Int = 0,
+    var form: Int = 0
 )
