@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.tele2education.ui.home.FriendsFragment"
+        android:name="com.example.tele2education.ui.friends.FriendsFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
@@ -28,4 +28,11 @@
         android:name="com.example.tele2education.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/navigation_education_lesson"
+        android:name="com.example.tele2education.ui.education.education_detail.EducationLessonFragment"
+        android:label="@string/title_education"
+        tools:layout="@layout/fragment_education_lesson" />
+
 </navigation>

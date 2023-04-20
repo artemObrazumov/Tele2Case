@@ -2,15 +2,13 @@ package com.example.tele2education.data.api
 
 import android.util.Log
 import com.example.tele2education.data.models.AuthResult
+import com.example.tele2education.data.models.education.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
+import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.tasks.await
-import java.util.Calendar
 
 class API() {
 
@@ -54,17 +52,45 @@ class API() {
         return FirebaseAuth.getInstance().currentUser
     }
 
-    suspend fun getEducationItems(form: Int): String {
-        var result = ""
+    // Получаем список предметов для нужного класса
+    suspend fun getEducationItems(form: Int): ArrayList<Education> {
+
+        val arrData: ArrayList<Education> = arrayListOf()
 
         val data = Firebase.database.reference.child("education")
             .child("form$form").get().await()
 
         data.children.forEach {
-            result += it.child("name").value
+            arrData.add(Education(it.key.toString(), it.child("name").value.toString(), it.child("srcImg").value.toString()))
         }
 
-        return result
+        return arrData
+    }
+
+    // Получаем список доступных уроков для предмета
+    suspend fun getEducationLessonItems(form: Int, id: String): ArrayList<EducationLesson> {
+        val arr: ArrayList<EducationLesson> = arrayListOf()
+        val data = Firebase.database.reference.child("education/form$form/$id/lessons").get().await()
+        data.children.forEach {
+            arr.add(EducationLesson(it.key!!, it.child("name").value.toString(), it.child("srcImg").value.toString()))
+        }
+
+        return arr
+
+    }
+
+    suspend fun getInteractiveEducationItems(form: Int, id: String, id_lesson: String): ArrayList<Any>{
+        val items: ArrayList<Any> = arrayListOf()
+        val data = Firebase.database.reference.child("education/form$form/$id/lessons/$id_lesson/education_items").get().await()
+        data.children.forEach {
+            when (it.child("type").value) {
+                "theory"    -> items.add(it.getValue(Theory::class.java)!!)
+                "test"      -> items.add(it.getValue(TestTask::class.java)!!)
+                "dictation" -> items.add(it.getValue(DictationTask::class.java)!!)
+                else        -> items.add(it.getValue(SentenceTask::class.java)!!)
+            }
+        }
+        return items
     }
 
 

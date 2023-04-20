@@ -1,4 +1,4 @@
-package com.example.tele2education.ui.home
+package com.example.tele2education.ui.friends
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.tele2education.databinding.FragmentHomeBinding
+import com.example.tele2education.ui.home.FriendsViewModel
 import com.example.tele2education.ui.in_game.InGameActivity
 
 class FriendsFragment : Fragment() {

@@ -7,4 +7,27 @@
     <string name="friends">Друзья</string>
     <string name="join_game">Присоединиться к игре:</string>
     <string name="join">Присоединиться</string>
+
+    <string name="task_sentence">Составление предложений</string>
+    <string name="task_test">Тест</string>
+    <string name="check">Проверить</string>
+    <string name="correct">Правильно!</string>
+    <string name="finish">Завершить</string>
+
+    <string name="answer_text">Это задание представляет собой сопоставление переводов из верхнего столбца с нижним.\n\nДля того чтобы сопоставить переводы, выберите перевод из верхнего списка, нажмите на него и удерживая палец на экране перетащите выбранный перевод до не переведённого предложения. После этого отпустите палец.
+    </string>
+    <string name="answer_text2">Для просмотра видео без подключения к сети Интернет, необходимо загрузить данное видео. Для этого необходимо нажать на текст, расположенный под плеером, который отражает состояние плеера и загрузка  начнётся автоматически.\nПосле загрузки, видео будет доступно без доступа к сети Интернет.</string>
+    <string name="result">"Результат: "</string>
+    <string name="restart">Перепройти</string>
+    <string name="quit">Вернуться в меню</string>
+    <string name="finish2">Завершить</string>
+    <string name="word_abc">Букварь</string>
+    <string name="search">Поиск</string>
+
+    <string name="theory">Теория</string>
+    <string name="practice">Практика</string>
+    <string name="test">Тест</string>
+    <string name="sentences">Составление предложений</string>
+    <string name="comparing">Диктант</string>
+    <string name="taskCompleted">Задание выполнено!</string>
 </resources>
