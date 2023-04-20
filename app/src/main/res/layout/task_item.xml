@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/task_background"
     android:padding="16dp">
 
     <TextView
@@ -32,10 +33,12 @@
         android:layout_height="20dp"
         android:layout_marginTop="12dp"
         android:src="@drawable/baseline_info_24"
+        app:tint="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answers" />
 
     <TextView
+        android:id="@+id/tip"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Ты не слава мэрлоу"

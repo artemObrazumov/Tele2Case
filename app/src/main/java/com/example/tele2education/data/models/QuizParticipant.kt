@@ -1,8 +1,8 @@
 package com.example.tele2education.data.models
 
 data class QuizParticipant (
-    var userId: String,
-    var state: Int
+    var userId: String = "",
+    var state: Int = 1
 ) {
     companion object {
         const val STATE_JOINED = 1

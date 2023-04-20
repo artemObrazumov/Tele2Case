@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.tele2education.MainActivity
 import com.example.tele2education.databinding.ActivityAuthSignUpBinding
+import com.example.tele2education.ui.finish_registration.FinishRegistrationActivity
 
 class AuthSignUpActivity : AppCompatActivity() {
 
@@ -14,7 +15,6 @@ class AuthSignUpActivity : AppCompatActivity() {
     private lateinit var viewModel: AuthSignUpViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        //setupTheme()
         super.onCreate(savedInstanceState)
 
         binding = ActivityAuthSignUpBinding.inflate(layoutInflater)
@@ -28,7 +28,7 @@ class AuthSignUpActivity : AppCompatActivity() {
             if(email != "" && password != "" && repeatPassword != ""){
                 viewModel.authResultData.observe(this){
                     if(it.isSuccessful){
-                        startActivity(Intent(this, MainActivity::class.java).apply {
+                        startActivity(Intent(this, FinishRegistrationActivity::class.java).apply {
                             putExtra("afterLogin", true)
                         })
                     }else{

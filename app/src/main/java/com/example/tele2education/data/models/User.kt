@@ -5,5 +5,6 @@ data class User(
     var nickname: String = "",
     var birthDate: Long = 0L,
     var avatar: String = "",
-    var balance: Int = 0
+    var balance: Int = 0,
+    var form: Int = 0
 )

@@ -9,4 +9,8 @@
     <string name="join">Присоединиться</string>
     <string name="before_we_start">Перед началом работы</string>
     <string name="name">Введите ваше имя</string>
+    <string name="dateOfBirth">Дата рождения: (Нажмите для выбора даты)</string>
+    <string name="ageSelect">Выберите возраст:</string>
+    <string name="finish">Завершить</string>
+    <string name="formSelect">Выберите класс</string>
 </resources>

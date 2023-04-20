@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.tele2education.App
 import com.example.tele2education.R
 import com.example.tele2education.data.models.QuizParticipant
 import com.example.tele2education.databinding.UserItemBinding
@@ -13,23 +14,24 @@ import com.example.tele2education.ui.adapter.models.Participant
 class ParticipantsAdapter(
     private var participants: List<Participant>,
     private var adminId: String,
-    private val onUserRemove:(id: String) -> Unit
+    private val onUserRemove:(index: Int) -> Unit
 ): RecyclerView.Adapter<ParticipantsAdapter.ViewHolder>() {
     class ViewHolder(private val binding: UserItemBinding):
         RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
-        fun bind(participant: Participant, isAdmin: Boolean,
-            onUserRemove: (id: String) -> Unit) {
-            binding.cross.setOnClickListener {
-                onUserRemove(participant.userData.id)
-            }
+        fun bind(index: Int,
+                 participant: Participant, isAdmin: Boolean,
+                 canBeRemoved: Boolean,
+                 onUserRemove: (index: Int) -> Unit) {
+            binding.userName.text = participant.userData.nickname
+            if (!canBeRemoved) binding.cross.visibility = View.GONE
             if (!isAdmin) binding.crown.visibility = View.GONE
             if (participant.state == QuizParticipant.STATE_READY) {
                 binding.userName
                     .setTextColor(binding.root.context.resources.getColor(R.color.green))
-            } else {
-                binding.userName
-                    .setTextColor(binding.root.context.resources.getColor(R.color.red))
+            }
+            binding.cross.setOnClickListener {
+                onUserRemove(index)
             }
         }
     }
@@ -42,22 +44,27 @@ class ParticipantsAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val participant = participants[position]
-        holder.bind(participant, participant.userData.id == adminId) { userId ->
-            onUserRemove(userId)
+        holder.bind(position, participant, participant.userData.id == adminId,
+            (participant.userData.id != adminId && adminId == App.api.getCurrentUser()!!.uid),
+            ) { userIndex ->
+            onUserRemove(userIndex)
         }
     }
 
-    override fun getItemCount() = participants.size
+    override fun getItemCount() = participants.toSet().size
 
     @SuppressLint("NotifyDataSetChanged")
     fun setDataset(participants: List<Participant>) {
-        this.participants = participants
+        this.participants = participants.toSet().toList()
         notifyDataSetChanged()
     }
 
     fun addParticipant(participant: Participant) {
-        participants = participants.toMutableList().apply { add(participant) }.toList()
-        notifyItemInserted(participants.size-1)
+        if (participant in participants) return
+        participants = participants.toMutableList().apply { add(participant) }.toSet().toList()
+        val participantIndex = participants
+            .indexOf(participants.find { it.userData.id == participant.userData.id })
+        notifyItemInserted(participantIndex)
     }
 
     fun removePlayer(id: String) {

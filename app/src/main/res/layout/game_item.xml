@@ -7,7 +7,7 @@
     android:paddingVertical="8dp">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/participantsCounter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Участников: 0/4"
