@@ -10,13 +10,26 @@
         android:layout_height="wrap_content"
         android:padding="16dp">
 
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Профиль"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            android:textSize="18sp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="16dp" />
+
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/shapeableImageView"
             android:layout_width="96dp"
             android:layout_height="96dp"
             android:src="@color/gray_background"
+            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title"
             app:shapeAppearance="@style/circleImageView" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -25,10 +38,11 @@
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:layout_marginEnd="12dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/message_background"
             app:layout_constraintEnd_toStartOf="@+id/shapeableImageView"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/title">
 
             <TextView
                 android:id="@+id/textView11"

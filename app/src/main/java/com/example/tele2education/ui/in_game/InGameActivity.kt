@@ -51,8 +51,6 @@ class InGameActivity : AppCompatActivity() {
             }
         }
         numberAdapter = QuestionNumbersAdapter(adapter.itemCount, 0)
-        binding.questionNumbers.layoutManager = LinearLayoutManager(this,
-        LinearLayoutManager.HORIZONTAL, false)
         binding.questionNumbers.adapter = numberAdapter
         viewModel.tasks.observe(this) { tasks ->
             adapter.setDataset(tasks)

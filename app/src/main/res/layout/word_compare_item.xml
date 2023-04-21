@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:padding="6dp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:text="1. Слово"/>
 
         <TextView
@@ -28,7 +28,7 @@
             android:textStyle="bold"
             android:padding="6dp"
             android:layout_marginStart="16dp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:text="Перевод:"/>
 
     </LinearLayout>
