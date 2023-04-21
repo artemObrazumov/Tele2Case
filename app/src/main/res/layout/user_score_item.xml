@@ -28,26 +28,17 @@
         app:layout_constraintStart_toEndOf="@+id/avatar"
         app:layout_constraintTop_toTopOf="@+id/avatar" />
 
-    <ImageView
-        android:id="@+id/crown"
-        android:layout_width="16dp"
-        android:layout_height="16dp"
-        android:src="@drawable/crown_svgrepo_com"
-        android:layout_marginStart="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/userName"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/yellow" />
-
-    <ImageView
-        android:id="@+id/cross"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:padding="8dp"
-        android:src="@drawable/baseline_cancel_24"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/userScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/avatar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/red" />
+        app:layout_constraintTop_toTopOf="@+id/avatar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

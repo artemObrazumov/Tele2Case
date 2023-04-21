@@ -5,5 +5,6 @@ data class Quiz(
     var title: String = "",
     var description: String = "",
     var form: String = "5",
-    var subject: String = ""
+    var subject: String = "",
+    var picture: String = ""
 )

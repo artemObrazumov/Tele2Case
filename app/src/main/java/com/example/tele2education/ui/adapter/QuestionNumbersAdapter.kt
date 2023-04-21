@@ -8,14 +8,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.tele2education.databinding.QuestionNumberItemBinding
 
 class QuestionNumbersAdapter(
-    private val questions: Int,
-    private val completedTo: Int
+    private var questions: Int,
+    private var completedTo: Int
 ): RecyclerView.Adapter<QuestionNumbersAdapter.ViewHolder>() {
     class ViewHolder(private val binding: QuestionNumberItemBinding):
         RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
         fun bind(position: Int, isCompleted: Boolean) {
-            if (isCompleted) {
+            if (!isCompleted) {
                 binding.number.text = (position+1).toString()
                 binding.check.visibility = View.GONE
             } else {
@@ -34,4 +34,14 @@ class QuestionNumbersAdapter(
     }
 
     override fun getItemCount() = questions-1
+
+    fun completeToNext() {
+        this.completedTo = completedTo++
+        notifyDataSetChanged()
+    }
+
+    fun updateCounter(size: Int) {
+        questions = size
+        notifyDataSetChanged()
+    }
 }

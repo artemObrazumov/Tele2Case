@@ -17,4 +17,10 @@ class GameInfoViewModel : ViewModel() {
             rooms.postValue(App.api.getRooms(quizId))
         }
     }
+
+    fun loadQuiz(quizId: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            quiz.postValue(App.api.getQuiz(quizId))
+        }
+    }
 }

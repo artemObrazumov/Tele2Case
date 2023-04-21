@@ -21,11 +21,13 @@ class ProfileFragment : Fragment() {
     ): View {
         binding = FragmentProfileBinding.inflate(layoutInflater)
         viewModel = ViewModelProvider(this)[ProfileViewModel::class.java]
-
-        binding.btnSignOut.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
+        viewModel.userData.observe(viewLifecycleOwner) { user ->
+            binding.name.text = user.nickname
+            binding.balance.text = user.balance.toString()
+            binding.form.text = user.form.toString()
+            binding.age.text = user.birthDate.toString()
         }
-
+        viewModel.loadUserData()
         return binding.root
     }
 
