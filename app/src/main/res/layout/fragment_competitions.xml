@@ -12,14 +12,23 @@
         android:layout_height="wrap_content"
         android:text="Викторины:"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="16dp" />
+        tools:layout_editor_absoluteX="16dp"
+        android:textColor="@color/white"
+        android:paddingVertical="8dp"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginHorizontal="8dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/quizList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
-        tools:listitem="@layout/quiz_item"
-        android:layout_marginHorizontal="8dp"/>
+        tools:itemCount="3"
+        tools:layout_editor_absoluteX="8dp"
+        tools:listitem="@layout/quiz_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

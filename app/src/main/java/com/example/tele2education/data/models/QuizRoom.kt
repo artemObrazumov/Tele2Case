@@ -6,5 +6,6 @@ data class QuizRoom (
     var participants: List<QuizParticipant> = emptyList(),
     var adminId: String = "",
     var script: List<QuizItem> = emptyList(),
-    var state: Int = 0
+    var state: Int = 0,
+    var speedBonus: Int = 4
 )

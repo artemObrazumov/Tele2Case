@@ -18,7 +18,7 @@ class GamePreparingActivity : AppCompatActivity() {
     private lateinit var viewModel: GamePreparingViewModel
     private var roomId: String? = null
     private var roomAdmin: String = App.api.getCurrentUser()!!.uid
-    private var questionCounter: Int = 3
+    private var questionCounter: Int = 5
     private var quizId: String = "quiz1"
     private lateinit var listener: GamePrepareEventListener
     private lateinit var adapter: ParticipantsAdapter
@@ -58,10 +58,10 @@ class GamePreparingActivity : AppCompatActivity() {
         if (roomAdmin == App.api.getCurrentUser()!!.uid) {
             binding.startButton.visibility = View.VISIBLE
             binding.startButton.setOnClickListener {
-                if (usersInRoom < 2) {
+                if (usersInRoom < 1) {
                     Snackbar
                         .make(binding.root, "Недостаточно участников!", Snackbar.LENGTH_SHORT).show()
-                    //return@setOnClickListener
+                    return@setOnClickListener
                 } else {
                     viewModel.startQuiz(roomId!!)
                 }
@@ -73,6 +73,7 @@ class GamePreparingActivity : AppCompatActivity() {
     }
 
     private fun getIntentData() {
+        quizId = intent.getStringExtra("quiz")!!
         val intentId = intent.getStringExtra("id")
         val adminId = intent.getStringExtra("admin")
         if (intentId != null) {
@@ -103,7 +104,10 @@ class GamePreparingActivity : AppCompatActivity() {
             override fun onPlayerStateChanged(id: String, state: Int) {}
 
             override fun onQuizStarted() {
-                startActivity(Intent(this@GamePreparingActivity, InGameActivity::class.java))
+                startActivity(
+                    Intent(this@GamePreparingActivity, InGameActivity::class.java)
+                        .apply { putExtra("roomId", roomId!!) }
+                )
             }
         }
     }

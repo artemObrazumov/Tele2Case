@@ -11,7 +11,11 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tele2Education"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".ui.game_finished.GameFinishedActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.education.education_detail.InteractiveEducationActivity"
             android:exported="false" />
@@ -23,23 +27,24 @@
             android:name=".ui.splash.SplashScreenActivity"
             android:exported="true"
             android:noHistory="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
-        <activity
-            android:name=".MainActivity"
-            android:exported="false"
-            android:label="@string/app_name"></activity>
         <activity
             android:name=".ui.game_preparing.GamePreparingActivity"
             android:exported="false"
-            android:noHistory="true" />
+            android:noHistory="true"/>
         <activity
             android:name=".ui.in_game.InGameActivity"
             android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"/>
         <activity android:name=".ui.game_info.GameInfoActivity" />
         <activity android:name="com.borsch_team.moneysaver.ui.auth.sign_up.AuthSignUpActivity" />
         <activity android:name="com.borsch_team.moneysaver.ui.auth.sign_in.AuthSignInActivity" />

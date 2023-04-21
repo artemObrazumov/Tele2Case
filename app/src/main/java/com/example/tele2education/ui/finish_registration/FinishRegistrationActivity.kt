@@ -8,6 +8,7 @@ import android.view.View.OnClickListener
 import androidx.lifecycle.ViewModelProvider
 import com.example.tele2education.App
 import com.example.tele2education.MainActivity
+import com.example.tele2education.data.PreferencesManager
 import com.example.tele2education.data.models.User
 import com.example.tele2education.databinding.ActivityFinishRegistrationBinding
 
@@ -28,12 +29,13 @@ class FinishRegistrationActivity : AppCompatActivity() {
             viewModel.uploadUserData(User(
                 App.api.getCurrentUser()!!.uid,
                 binding.name.text.toString().trim(),
-                dateOfBirth,
+                ageSelected.toLong(),
                 "",
                 0,
                 formSelected
             )) {
                 startActivity(Intent(this, MainActivity::class.java))
+                App.preferencesManager.saveRegisteredStatus(true)
             }
         }
     }

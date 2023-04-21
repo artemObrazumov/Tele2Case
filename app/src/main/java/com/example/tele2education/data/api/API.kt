@@ -6,6 +6,7 @@ import com.example.tele2education.data.models.education.*
 import com.example.tele2education.App
 import com.example.tele2education.data.models.*
 import com.example.tele2education.ui.adapter.models.Participant
+import com.example.tele2education.ui.adapter.models.ParticipantScore
 import com.example.tele2education.ui.adapter.models.Task
 import com.example.tele2education.ui.game_preparing.GamePrepareEventListener
 import com.google.firebase.auth.FirebaseAuth
@@ -136,9 +137,11 @@ class API() {
         FirebaseDatabase.getInstance().getReference("quiz_room/$roomId/state")
             .addValueEventListener(object: ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    if (snapshot.getValue(Int::class.java)!! == 1) {
-                        listener.onQuizStarted()
-                    }
+                    try {
+                        if (snapshot.getValue(Int::class.java)!! == 1) {
+                            listener.onQuizStarted()
+                        }
+                    } catch (_:Exception) {}
                 }
                 override fun onCancelled(error: DatabaseError) {}
             })
@@ -264,5 +267,29 @@ class API() {
         }
         return tasks
     }
+
+    suspend fun loadBestPlayers(roomId: String): List<ParticipantScore> {
+        var participants = arrayListOf<ParticipantScore>()
+        FirebaseDatabase.getInstance().getReference("quiz_progress/$roomId").get().await()
+            .children.forEach {
+                participants.add(
+                    ParticipantScore(
+                        getUser(it.key!!), it.getValue(Int::class.java)!!
+                    )
+                )
+            }
+        return participants.sortedBy { it.score }
+    }
+
+    suspend fun saveScoreToBalance(score: Int) {
+        val userBalance = getUser(getCurrentUser()!!.uid).balance + score
+        FirebaseDatabase.getInstance().getReference("users/${getCurrentUser()!!.uid}/balance")
+            .setValue(userBalance)
+    }
+
+    suspend fun getQuiz(quizId: String): Quiz =
+        FirebaseDatabase.getInstance()
+            .getReference("quizs/$quizId")
+            .get().await().getValue(Quiz::class.java)!!
 
 }
