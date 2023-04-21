@@ -23,7 +23,7 @@ class WordCompareAdapter(
         RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
         fun bind(word: DictationWord, index: Int) {
-            binding.originalWord.text = "$index: ${word.original}"
+            binding.originalWord.text = "$index: ${word.answer}"
         }
 
         fun setTranslationLabel(text: String) {
@@ -73,7 +73,7 @@ class WordCompareAdapter(
 
     fun compare(it: String, position: Int): Boolean {
         if (dataSet[position].done) return false
-        val successful = it == dataSet[position].answer
+        val successful = it == dataSet[position].original
         if (successful) {
             onWordInserted(it, position)
             dataSet[position].done = true
