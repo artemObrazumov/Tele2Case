@@ -1,8 +1,6 @@
 package com.example.tele2education.ui.education.education_detail.pager_fragments
 
-import android.content.Intent
 import android.os.Bundle
-import android.transition.Visibility
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,6 +19,7 @@ class PagerTestFragment(private val testTask: TestTask) : Fragment() {
     private var taskID: String = ""
     private var checked = false
     private var score = 0
+    private var isCompleate = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,8 +28,6 @@ class PagerTestFragment(private val testTask: TestTask) : Fragment() {
     ): View {
         binding = FragmentPagerTestBinding.inflate(layoutInflater)
 
-        binding.tvResult.visibility = View.INVISIBLE
-
         adapter = TestAdapter()
         adapter.setDataset(testTask.test_items)
         binding.tests.layoutManager = LinearLayoutManager(requireContext())
@@ -38,12 +35,24 @@ class PagerTestFragment(private val testTask: TestTask) : Fragment() {
 
 
         binding.check.setOnClickListener {
-            if (!checked) {
-                checkTest()
-                checked = true
-            } else {
-                finishTask(score)
+            if(isCompleate){
+                binding.check.setBackgroundColor(R.drawable.background_line_block)
+            }else{
+                if (!checked) {
+                    checkTest()
+                    checked = true
+                } else {
+                    if (score == adapter.itemCount){
+                        // Набрали макс баллов, можем идти дальше
+                        isCompleate = true
+                        binding.check.visibility = View.INVISIBLE
+                    }else{
+
+                    }
+                    //finishTask(score)
+                }
             }
+
         }
 
         return binding.root
@@ -63,13 +72,8 @@ class PagerTestFragment(private val testTask: TestTask) : Fragment() {
 
     private fun finishTask(score: Int) {
         val maxScore = adapter.itemCount
-
-        if (score == maxScore){
-            binding.tvResult.visibility = View.VISIBLE
-            binding.check.isClickable = false
-        }else{
-            binding.check.isClickable = true
-
+        if (maxScore == score){
+            binding.check.text = "Продолжить"
         }
         /*startActivity(
             Intent(requireContext(), CongratulationsActivity::class.java)
@@ -81,4 +85,9 @@ class PagerTestFragment(private val testTask: TestTask) : Fragment() {
                 flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             })*/
     }
+
+    private fun clearRadioGroupStyles(){
+
+    }
+
 }

@@ -26,10 +26,7 @@ class ParticipantsAdapter(
             binding.userName.text = participant.userData.nickname
             if (!canBeRemoved) binding.cross.visibility = View.GONE
             if (!isAdmin) binding.crown.visibility = View.GONE
-            if (participant.state == QuizParticipant.STATE_READY) {
-                binding.userName
-                    .setTextColor(binding.root.context.resources.getColor(R.color.green))
-            }
+
             binding.cross.setOnClickListener {
                 onUserRemove(index)
             }

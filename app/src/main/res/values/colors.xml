@@ -15,5 +15,6 @@
     <color name="darkGray">#C1C1C1</color>
     <color name="input_field">#E1EBFC</color>
     <color name="yellow">#FFD54D</color>
-    <color name="red">#b22947</color>
+    <color name="red">#E83030</color>
+    <color name="green">#c3e400</color>
 </resources>

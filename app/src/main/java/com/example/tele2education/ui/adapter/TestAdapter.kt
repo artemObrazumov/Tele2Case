@@ -47,8 +47,8 @@ class TestAdapter: RecyclerView.Adapter<TestAdapter.ViewHolder>() {
                     ),
                     intArrayOf(
                         ContextCompat.getColor(binding.root.context, R.color.darkGray),
-                        ContextCompat.getColor(binding.root.context, R.color.purple_500),
-                        ContextCompat.getColor(binding.root.context, R.color.purple_500),
+                        ContextCompat.getColor(binding.root.context, R.color.interactable),
+                        ContextCompat.getColor(binding.root.context, R.color.interactable),
                         ContextCompat.getColor(binding.root.context, R.color.darkGray)
                     )
                 )
